@@ -231,7 +231,7 @@ const getNearestBranch = (zipCode: string): NearestBranch | null => {
       return { branchName: branchKey, branchInfo: branch };
     }
   }
-  return null; // Return null if no matching branch found
+  return null;
 };
 
 const Home: React.FC = () => {
@@ -245,7 +245,7 @@ const Home: React.FC = () => {
       const data = { ...formData, nearestBranch };
       setSubmittedData(data);
 
-      // Send data to webhook (you can replace with your actual URL)
+      // Send data to webhook
       fetch("https://webhook.site/a3d2c3a0-0be4-4179-9915-14475a00af1e", {
         method: "POST",
         headers: {
@@ -266,38 +266,41 @@ const Home: React.FC = () => {
     } else {
       // Handle case where no branch matches the zip code
       console.error("No branch found for the zip code:", formData.zipCode);
-      // Optionally, you can show an error message to the user or take another action
     }
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center py-2 bg-[#FFD6BF]">
+    <div className="flex min-h-screen items-center justify-center py-2 bg-[#FFD6BF] ">
       {!submittedData ? (
-        <div className="flex flex-col max-w-md text-black w-full space-y-8 p-10 bg-white rounded-xl shadow-lg">
+        <div className="flex flex-col max-w-md text-black w-full space-y-8 p-10 bg-white rounded-xl shadow-lg lg:w-1/2 ">
           <Image
-          className="justify-center items-center"
+            className="justify-center items-center"
             src="/images/CareIndeed_Logo.png"
             alt="Care Indeed Logo"
             height={100}
             width={100}
           />
-          <h2 className="mt-6 text-center text-xl font-extrabold text-gray-900">
-            Care Indeed
-          </h2>
+          <h3 className="mt-6 text-center text-xl font-semibold text-[#993B00]">
+            Inquiry Form
+          </h3>
           <InquiryForm onSubmit={handleFormSubmit} />
         </div>
       ) : (
-        <div className="max-w-md text-black w-full space-y-8 p-10 bg-white rounded-xl shadow-lg">
-          <h2 className="text-2xl font-bold text-gray-900">
+        <div className="max-w-md text-[#993B00] w-full space-y-8 p-10 bg-white rounded-xl shadow-lg">
+          <h2 className="text-2xl font-bold text-[#027073] ">
             Hey, {submittedData.name}!
           </h2>
+          <p>These services are available around your area!</p>
+          <p>{submittedData.staffingType.join(", ")}</p>
           <p>
-            We have {submittedData.staffingType.join(", ")} available in our{" "}
-            {submittedData.nearestBranch.branchName} Branch located at{" "}
-            {submittedData.nearestBranch.branchInfo.address}.
+            Inquire in our {submittedData.nearestBranch.branchName} Branch
+            located at {submittedData.nearestBranch.branchInfo.address}
           </p>
           <p>
-            <strong>Phone:</strong>{" "}
+            or
+          </p>
+          <p className=" text-[#027073]">
+            <strong>Call:</strong>{" "}
             {submittedData.nearestBranch.branchInfo.phone}
           </p>
         </div>

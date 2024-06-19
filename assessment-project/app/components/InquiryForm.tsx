@@ -47,18 +47,18 @@ const InquiryForm: React.FC<InquiryFormProps> = ({ onSubmit }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className='container'>
-        <label className="flex flex-row text-sm font-medium text-gray-700">Name</label>
+        <label className="flex flex-row text-sm font-medium text-[#993B00]">Name</label>
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className="flex mt-1 text-black w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="flex mt-1 text-black w-full rounded-md border-gray-300 shadow-sm focus:border-[#F0FEFF] focus:ring-[#F0FEFF] sm:text-sm"
           required
         />
       </div>
       <div>
-        <label className="flex flex-row text-sm font-medium text-gray-700">Email</label>
+        <label className="flex flex-row text-sm font-medium text-[#993B00]">Email</label>
         <input
           type="email"
           name="email"
@@ -69,7 +69,7 @@ const InquiryForm: React.FC<InquiryFormProps> = ({ onSubmit }) => {
         />
       </div>
       <div>
-        <label className="flex flex-row text-sm font-medium text-gray-700">Zip Code</label>
+        <label className="flex flex-row text-sm font-medium text-[#993B00]">Zip Code</label>
         <input
           type="text"
           name="zipCode"
@@ -80,7 +80,7 @@ const InquiryForm: React.FC<InquiryFormProps> = ({ onSubmit }) => {
         />
       </div>
       <div>
-        <label className="flex text-sm font-medium text-gray-700">Type of Medical Staffing</label>
+        <label className="flex text-sm font-medium text-[#993B00]">Type of Medical Staffing</label>
         <div className="mt-2 space-y-2">
           {staffingOptions.map((option) => (
             <div key={option} className="flex items-center">
@@ -91,7 +91,7 @@ const InquiryForm: React.FC<InquiryFormProps> = ({ onSubmit }) => {
                 onChange={handleCheckboxChange}
                 className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
               />
-              <label className="ml-2 block text-sm text-gray-900">{option}</label>
+              <label className="ml-2 block text-sm text-[#027073]">{option}</label>
             </div>
           ))}
         </div>
@@ -99,7 +99,7 @@ const InquiryForm: React.FC<InquiryFormProps> = ({ onSubmit }) => {
       <div>
         <button
           type="submit"
-          className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="inline-flex justify-center py-2 px-4 border border-[#027073] shadow-sm text-sm font-medium rounded-md text-[#027073] bg-[#F0FEFF] hover:bg-[#F0FEFF]"
         >
           Submit
         </button>
