@@ -1,5 +1,3 @@
-// InquiryForm.tsx
-
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 
 export interface FormData {

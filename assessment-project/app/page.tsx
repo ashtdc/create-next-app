@@ -296,9 +296,7 @@ const Home: React.FC = () => {
             Inquire in our {submittedData.nearestBranch.branchName} Branch
             located at {submittedData.nearestBranch.branchInfo.address}
           </p>
-          <p>
-            or
-          </p>
+          <p>or</p>
           <p className=" text-[#027073]">
             <strong>Call:</strong>{" "}
             {submittedData.nearestBranch.branchInfo.phone}
